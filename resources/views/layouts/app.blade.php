@@ -82,7 +82,7 @@
                 <img src="{{ session('profile_photo') }}" alt="User Image" class="img-fluid rounded-circle" width="100">
                 <h5 class="mt-2">{{ session('sso_data')['nama'] }}</h5>
                 <a href="{{ asset('storage/pdf/SIKOI.pdf') }}" class="btn btn-danger mt-2" download="catatan-sikoi.pdf">
-                    <i class="bi bi-file-earmark-pdf-fill"></i>Sebuah Catatan
+                    <i class="bi bi-file-earmark-pdf-fill"></i> Sebuah Catatan
                 </a>
             </div>
             <nav class="nav flex-column">
