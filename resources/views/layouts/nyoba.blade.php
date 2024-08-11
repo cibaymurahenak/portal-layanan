@@ -4,16 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DASHBOARD</title>
+
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    {{-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> --}}
-    {{-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"> --}}
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Update to latest jQuery -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link href='{{ Vite::asset('resources/images/oi.jpeg') }}' rel="shortcut icon">
+
+    <!-- Custom CSS & JS -->
     @vite('resources/sass/app.scss')
+
+    <!-- Favicon -->
+    <link href='{{ Vite::asset('resources/images/oi.jpeg') }}' rel="shortcut icon">
+
     <style>
         header {
             background-color: #ECF9FF;
@@ -51,9 +57,9 @@
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::routeIs('pegawai') ? 'active' : '' }}" href="{{ route('pegawai') }}">Pegawai</a>
                             </li>
-                            {{-- <li class="nav-item">
-                                <a class="nav-link {{ Request::routeIs('coba') ? 'active' : '' }}" href="{{ route('coba') }}">Coba</a>
-                            </li> --}}
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::routeIs('profile') ? 'active' : '' }}" href="{{ route('profile') }}">Profile</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="d-flex align-items-center ms-auto">
@@ -64,25 +70,17 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('profile') }}">
-                                        Profile
-                                    </a>
+                                    <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
                                 </li>
                                 <li>
                                     @if (session('jenis_akses') == 'OPD' || session('jenis_akses') == 'PTT')
-                                        <a class="dropdown-item" href="{{ route('show-change-password-form') }}">
-                                            Reset Password
-                                        </a>
+                                        <a class="dropdown-item" href="{{ route('show-change-password-form') }}">Reset Password</a>
                                     @else
-                                        <a class="dropdown-item" href="https://myasn.bkn.go.id/reset-password" target="_blank">
-                                            Reset Password
-                                        </a>
+                                        <a class="dropdown-item" href="https://myasn.bkn.go.id/reset-password" target="_blank">Reset Password</a>
                                     @endif
                                 </li>
                                 <li>
-                                    <a class="dropdown-item logout-hover" href="#" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">
-                                        Logout
-                                    </a>
+                                    <a class="dropdown-item logout-hover" href="#" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">Logout</a>
                                 </li>
                             </ul>
                         </div>
@@ -94,7 +92,6 @@
         <main class="flex-grow-1">
             @yield('content')
             @stack('scripts')
-          {{-- @include('sweetalert::alert') --}}
         </main>
 
         <footer class="py-3 text-center">
@@ -107,10 +104,9 @@
         @csrf
     </form>
 
+    <!-- Bootstrap Bundle JS (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    {{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script> --}}
-    {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
+
     @vite('resources/js/app.js')
 </body>
 </html>
